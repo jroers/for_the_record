@@ -1,13 +1,18 @@
-<h1>Signup!</h1>
-
-<%= form_for :user, url: '/users' do |f| %>
-
-  Name: <%= f.text_field :name, placeholder: "Name" %><br>
-  Date of Birth: <%= f.date_field :dob %><br>
-  Sex: <%= f.text_field :sex, placeholder: "Male/Female" %><br>
-  Email: <%= f.text_field :email, placeholder: "email@email.com" %><br>
-  Password: <%= f.password_field :password %><br>
-  Password Confirmation: <%= f.password_field :password_confirmation %><br>
-  <%= f.submit "Submit" %>
-
+<%= form_for @user do |f| %>
+  <div>
+    <%= f.text_field :name, placeholder: "First Name" %>
+  </div>
+  <div>
+    <%= f.date_field :dob %>
+  </div>
+  <div>
+    <%= f.text_field :sex, placeholder: "Male/Female" %>
+  </div>
+  <div>
+    <%= f.text_field :email, placeholder: "Email" %>
+  </div>
+  <div>
+    <%= f.password_field :password, placeholder: "Password" %>
+  </div>
+  <%= f.submit "Sign Up" %>
 <% end %>
