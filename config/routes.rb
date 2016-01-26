@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#show', as: "user_profile"
 
   get '/login', to: 'sessions#new', as: 'login'
+  get "/logout", to: "sessions#destroy", as: 'logout'
+  post "/sessions", to: "sessions#create"
 end
