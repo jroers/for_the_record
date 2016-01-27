@@ -12,7 +12,7 @@
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <a class="navbar-brand" href="/home">For the Record</a>
+        <a class="navbar-brand" href="/">For the Record</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,6 +22,7 @@
         <ul class="nav navbar-nav navbar-right nav-pills">
           <% if current_user %>
             <li role="presentation"><%= link_to "Profile", user_profile_path %></li>
+            <li role="presentation"><%= link_to "New Result", new_result_path %></li>
             <li role="presentation"><%= link_to "Temperatures", temperatures_path %></li>
             <li role="presentation"><%= link_to "Logout", logout_path %></li>
           <% else %>
