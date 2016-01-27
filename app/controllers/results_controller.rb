@@ -1,12 +1,21 @@
 class ResultsController < ApplicationController
 	def temperature
 		@temps = []
-		Result.where(kind: "temperature").each {|ele| @temps << ele.value }
+		@user = User.find_by_id(session[:user_id])
+		Result.where(kind: "temperature", user_id: @user.id).each {|ele| @temps << ele.value }
+		
 
 		g = Gruff::Line.new
-		g.title = "A Line Graph"
-		g.data 'Fries', [20, 23, 19, 8]
-		g.data 'Hamburgers', [50, 19, 99, 29]
-		g.write("test/output/line.png")
+		g.title = "Recorded Temperatures"
+		g.data 'Temperatures', @temps
+		g.reference_lines[:normal_hi] = { :value => 99, :color => 'red' }
+		g.reference_lines[:normal_lo] = { :value => 97.8, :color => 'red' }
+		g.write("app/assets/images/#{@user.id}_temperatures.png")
+	end
+
+	def new
+	end
+
+	def create
 	end
 end
