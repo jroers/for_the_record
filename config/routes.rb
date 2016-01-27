@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   post "/sessions", to: "sessions#create"
 
   get '/profile/temperatures', to: 'results#temperature', as: "temperatures"
+  get '/profile/results/new', to: 'results#new', as: "new_result"
+  post '/profile', to: 'results#create'
 end
